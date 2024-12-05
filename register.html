@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title> ติดต่อเรา </title>
+        <link href="style001.css" rel="stylesheet" type="text/css" />
+        <style>
+            * {box-sizing: border-box;}
+            body {margin: 0;}
+            .header {background-color: rgb(192, 237, 248); text-align: center; padding: 20px;}
+            .topnav {overflow: hidden; background-color: #575757;}
+            .topnav a {float: left; display: rgb(43, 43, 43); color: rgb(46, 196, 255); text-align: center; padding: 14px 16px; text-decoration: none;}
+            .topnav a:hover {background-color: #ddd; color: black;}
+            h4{color: rgb(25, 119, 148);}
+            h2{color: rgb(71, 187, 223);}
+        </style>
+    </head>
+    <body>
+        <div class="header"><h1> Header หัวข้อหลัก </h1></div>
+        <div class="topnav">
+            <a href="index.html"> Home </a> <a href="about.html"> About </a> <a href="register.html"> Contact </a>
+        </div>
+        <h2> ติดต่อเรา </h2>
+        <h4> โปรดลงทะเบียน </h4>
+        <form method="post" action="#" name="form1">
+            Username : <input type="text" name="user"/><br/>
+            Password : <input type="password" name="pass"/><br/>
+            <input type="submit" value="OK"/>
+            <input type="reset" value="Cancel"/>
+            <input type="button" value="Click me" onclick="alert('Test Test')"/>
+        </form>
+        <form method="get" action="#" name="form2">
+            เพศ : <input type="radio" name="sex" value="male"> ชาย
+                  <input type="radio" name="sex" value="female"> หญิง <br/>
+            การศึกษา : <input type="checkbox" name="edu" value="1"> ประถมศึกษา
+                      <input type="checkbox" name="edu" value="2"> มัธยมศึกษา
+                      <input type="checkbox" name="edu" value="3"> ปริญญาตรี
+                      <input type="checkbox" name="edu" value="4"> สูงกว่าปริญญาตรี <br/>
+        </body>
+</html>

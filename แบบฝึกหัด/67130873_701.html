@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปรับแต่งสีและตัวอักษร</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            
+        }
+        .preview {
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #72fddf;
+            text-align: center;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: rgb(255, 203, 124); ">
+    <h1 >jQuery is easy.</h1>
+    
+
+  
+    
+</div>
+   
+    <div>
+        <div class="form-group">
+            <label for="bgColor">Set Background Color:</label>
+            <input type="color" id="bgColor" value="#00FFFF">
+        </div>
+        <div class="form-group">
+            <label for="textColor">Set Text Color:</label>
+            <input type="color" id="textColor" value="#000000">
+        </div>
+        <div class="form-group">
+            <label for="fontSize">Set Text Size:</label>
+            <input type="number" id="fontSize" value="32" min="10" max="100"> px
+        </div>
+        <button id="applyChanges">Set Style</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+           
+            $("#applyChanges").click(function() {
+               
+                const bgColor = $("#bgColor").val();
+                const textColor = $("#textColor").val();
+                const fontSize = $("#fontSize").val();
+
+               
+                $("#preview").css({
+                    "background-color": bgColor,
+                    "color": textColor,
+                    "font-size": fontSize + "px"
+                });
+            });
+        });
+    </script>
+</body>
+</html>

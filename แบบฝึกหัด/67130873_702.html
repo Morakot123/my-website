@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟอร์มเพิ่มข้อมูลผู้เดินทาง</title>
+    <style>
+        .row { display: flex; margin-bottom: 10px; }
+        .row input { margin-right: 10px; }
+        .row button { margin-left: 5px; }
+    </style>
+</head>
+<body>
+    <h3>ข้อมูลผู้เดินทาง</h3>
+    <form id="travelersForm">
+        <div class="row">
+            <input type="text" name="fullName[]" placeholder="ชื่อ-สกุล" required>
+            <input type="text" name="idCard[]" placeholder="รหัสบัตรประชาชน" required>
+            <button type="button" onclick="addRow(this)">+</button>
+        </div>
+    </form>
+    <button type="submit" onclick="submitForm()">บันทึกการจอง</button>
+
+    <script>
+        function addRow(button) {
+           
+            button.style.display = "none";
+
+            
+            const newRow = document.createElement("div");
+            newRow.classList.add("row");
+
+            
+            const fullNameInput = document.createElement("input");
+            fullNameInput.type = "text";
+            fullNameInput.name = "fullName[]";
+            fullNameInput.placeholder = "ชื่อ-สกุล";
+            fullNameInput.required = true;
+
+            
+            const idCardInput = document.createElement("input");
+            idCardInput.type = "text";
+            idCardInput.name = "idCard[]";
+            idCardInput.placeholder = "รหัสบัตรประชาชน";
+            idCardInput.required = true;
+
+            
+            const deleteButton = document.createElement("button");
+            deleteButton.type = "button";
+            deleteButton.textContent = "-";
+            deleteButton.onclick = function () {
+                removeRow(newRow);
+            };
+
+           
+            const addButton = document.createElement("button");
+            addButton.type = "button";
+            addButton.textContent = "+";
+            addButton.onclick = function () {
+                addRow(addButton);
+            };
+
+           
+            newRow.appendChild(fullNameInput);
+            newRow.appendChild(idCardInput);
+            newRow.appendChild(deleteButton);
+            newRow.appendChild(addButton);
+
+            
+            const form = document.getElementById("travelersForm");
+            form.appendChild(newRow);
+        }
+
+        function removeRow(row) {
+            const form = document.getElementById("travelersForm");
+            form.removeChild(row);
+        }
+
+        function submitForm() {
+            const form = document.getElementById("travelersForm");
+            const formData = new FormData(form);
+
+           
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+            alert("ข้อมูลการจองถูกบันทึกเรียบร้อย!");
+        }
+    </script>
+</body>
+</html>
